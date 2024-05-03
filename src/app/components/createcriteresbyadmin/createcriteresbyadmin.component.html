@@ -1,0 +1,256 @@
+
+
+
+
+<app-headerbyadmin></app-headerbyadmin>
+<app-menubyadmin></app-menubyadmin>
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-warning">
+  
+        <h1>AJOUTER CRITERE TO HOTELS : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-warning">
+
+
+      <div class="alert alert-warning" role="alert">
+        
+        <h1>{{vauesss}} </h1>
+      </div>
+
+      <br><hr>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+
+<div class="row justify-content-center">
+    <div class="register-criteres">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        
+          
+
+          <div class="row">
+            <div class="col">
+        
+                  <div class="form-group">
+                    <label for="inputName">ID DE HOTEL DESIGNE :</label>
+                    <input class="form-control" type="text" formControlName="hotelsid" />
+                    <!-- error -->
+                    <div
+                      class="invalid-feedback"
+                      *ngIf="submitted && myForm['hotelsid'].errors?.['required']"
+                      class="alert alert-danger"
+                    >
+                    hotelsid est obligatoire
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+
+          
+<div class="row">
+    <div class="col">
+          <div class="form-group">
+            <label for="inputName">critere : </label>
+            <select class="form-select" formControlName="critere">
+              <option>PISCINE</option>
+              <option>COFFE</option>
+              <option>PLAGE</option>
+              <option>ANIMATION</option>
+              <option>ZONE</option>
+  
+            </select> 
+          </div>
+
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">VALEUR : </label>
+            <select class="form-select" formControlName="valeur">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+  
+            </select>  
+          </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col">
+          <div class="form-group">
+            <label for="inputName">DESCRIPTION : </label>
+            <input class="form-control" type="text" formControlName="description" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['description'].errors?.['required']"
+            >
+            description est obligatoire.....
+            </div>
+          </div>
+  
+
+    </div>
+
+
+    <div class="col">
+
+      
+      <!-- Progress Bar -->
+      <div class="progress form-group" *ngIf="progress > 0">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="file" (change)="uploadFile($event)">
+    </div>
+
+
+
+
+</div>
+
+</div>
+  
+
+
+
+          
+  
+          
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">
+              VALIDER
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="criteres.length <= 0" class="no-data text-center">There is no criteres added yet!</p>
+    <!-- criteres list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="criteres.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">critere</th>
+          <th scope="col">valeur</th>
+          <th scope="col">description</th>
+          <th scope="col center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+                                                                          <tr
+              *ngFor="
+                let criteres of criteres
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+            <td><img src = {{criteres.avatar}} width="100" height="100" class="img-fluid mr-2"></td>
+
+
+          
+          <td>{{criteres.critere}}</td>
+          <td>{{criteres.valeur}}</td>
+          <td>{{criteres.description}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/admineditcrietre/', criteres._id]">
+              <button type="button" class="btn btn-warning btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/admindetailcritere/', criteres._id]">
+              <button type="button" class="btn btn-info btn-sm">DETAILS</button>
+            </span>&nbsp;&nbsp;
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+  </div>
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+<app-footerbyadmin></app-footerbyadmin>
+

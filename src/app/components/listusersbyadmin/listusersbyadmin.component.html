@@ -1,0 +1,124 @@
+
+
+
+
+<app-headerbyadmin></app-headerbyadmin>
+<app-menubyadmin></app-menubyadmin>
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card">
+
+
+      <div class="container"><hr>
+
+        <div class="row">
+          <div class="col-sm">
+        <button class="btn btn-lg btn-success" routerLink="/admincreeruser/">new user</button>&nbsp;
+          </div>
+          <div class="col-sm text-right">
+        <button class="btn btn-lg btn-info" (click)="openPDF()">EXPORT PDF</button>&nbsp;
+          </div>
+      </div>
+      <br><hr>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="users.length <= 0" class="no-data text-center">There is no users added yet!</p>
+    <!-- users list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="users.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">role</th>
+          <th scope="col">profileAnciennete</th>
+          <th scope="col center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+              <tr
+              *ngFor="
+                let users of users
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+          <td>{{users.name}}</td>
+          <td>{{users.email}}</td>
+          <td>{{users.role}}</td>
+          <td>{{users.profileAnciennete}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/adminedituser/', users._id]">
+              <button type="button" class="btn btn-warning btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/admindetailuser/', users._id]">
+              <button type="button" class="btn btn-info btn-sm">DETAILS</button>
+            </span>&nbsp;&nbsp;
+            <span class="delete" (click)="removeusers(users, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+
+
+  </div>
+
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+<app-footerbyadmin></app-footerbyadmin>
+

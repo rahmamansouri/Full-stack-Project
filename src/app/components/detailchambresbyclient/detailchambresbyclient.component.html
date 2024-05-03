@@ -1,0 +1,235 @@
+
+
+
+
+<app-headerbyclient></app-headerbyclient>
+<app-menubyclient></app-menubyclient>
+
+
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card ">
+  
+
+
+
+
+      </div>
+  </div>
+  </div>
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-info">
+  
+        <h1>DETAILS : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card">
+    
+<div class="row justify-content-center">
+  <div class="register-chambres">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        
+        
+<div class="row">
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">SELECTIONNER AGENCE ID</label>
+          <input class="form-control" type="text" formControlName="agence_id" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['agence_id'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          agence_id is required.
+          </div>
+        </div>
+  </div>
+  <div class="col">
+        <div class="form-group">
+          <label for="inputName">HOTEL DEMANDE : </label>
+          <input class="form-control" type="text" formControlName="hotel_id" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['hotel_id'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          hotel_id is required.
+          </div>
+        </div>
+
+
+  </div>
+</div>
+  <div class="row">
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">NUMERO CHAMBRE : </label>
+          <input class="form-control" type="text" formControlName="NumChambre" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['NumChambre'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          NumChambre is required.
+          </div>
+        </div>
+
+  </div>
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">TYPE : </label>
+          <input class="form-control" type="text" formControlName="type" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['type'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          type is required.
+          </div>
+        </div>
+
+  </div>
+</div>
+
+
+  <div class="row">
+    <div class="col">
+    
+      <div class="form-group">
+        <label for="inputName">datedebut</label>
+        <input class="form-control" type="date" formControlName="datedebut" />
+        <!-- error -->
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && myForm['datedebut'].errors?.['required']"
+          class="alert alert-danger"
+        >
+        datedebut is required.
+        </div>
+      </div>
+</div>
+<div class="col">
+
+  <div class="form-group">
+    <label for="inputName">datefin</label>
+    <input class="form-control" type="date" formControlName="datefin" />
+    <!-- error -->
+    <div
+      class="invalid-feedback"
+      *ngIf="submitted && myForm['datefin'].errors?.['required']"
+      class="alert alert-danger"
+    >
+    datefin is required.
+    </div>
+  </div>
+</div>
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">ETAT : </label>
+          <input class="form-control" type="text" formControlName="etat" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['etat'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          etat is required.
+          </div>
+        </div>
+
+  </div>
+</div>
+        
+        
+
+  <div class="row">
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">prixAchat</label>
+          <input class="form-control" type="text" formControlName="prixAchat" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['prixAchat'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          prixAchat is required.
+          </div>
+        </div>
+  </div>
+  <div class="col">
+
+        <div class="form-group">
+          <label for="inputName">prixVente</label>
+          <input class="form-control" type="text" formControlName="prixVente" readonly/>
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['prixVente'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          prixVente is required.
+          </div>
+        </div>
+
+  </div>
+</div>
+
+
+        
+
+        
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">
+            VALIDER
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+
+
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyclient></app-footerbyclient>
+

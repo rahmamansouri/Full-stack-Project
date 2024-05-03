@@ -1,0 +1,279 @@
+
+
+
+
+<app-headerbyagence></app-headerbyagence>
+<app-menubyagence></app-menubyagence>
+
+
+
+
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-warning">
+  
+        <h1>Modifier Les Données : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-warning">
+
+
+      <div class="alert alert-warning" role="alert">
+        
+        <h1>{{vauesss}} </h1>
+      </div>
+
+      <br><hr>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+
+<div class="row justify-content-center">
+    <div class="register-users">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          
+          
+
+
+
+
+<div class="row">
+    <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">Nom</label>
+            <input class="form-control" type="text" formControlName="name" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['name'].errors?.['required']"
+            >
+            Nom est obligatoire
+            </div>
+          </div>
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">email</label>
+            <input class="form-control" type="text" formControlName="email" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['email'].errors?.['required']"
+            >
+            Email est obligatoire
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">Mot de passe</label>
+            <input class="form-control" type="text" formControlName="password" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['password'].errors?.['required']"
+            >
+            Mot de passe est obligatoire
+            </div>
+          </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+      <div class="form-group">
+        <label for="inputName">role</label>
+        <select class="form-select" formControlName="role">
+          <option value="" selected disabled hidden>Choose here</option>
+          <option>admin</option>
+          <option>agence</option>
+          <option>client</option>
+        </select>
+
+        <!-- error -->
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && myForm['role'].errors?.['required']"
+          class="alert alert-danger"
+        >
+        role est obligatoire.....
+        </div>
+      </div>
+
+    </div>
+        <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">profileAnciennete</label>
+            <input class="form-control" type="text" formControlName="profileAnciennete" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profileAnciennete'].errors?.['required']"
+            >
+            profileAnciennete est obligatoire.....
+            </div>
+          </div>
+    </div>
+        <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">profileGamme</label>
+            <input class="form-control" type="text" formControlName="profileGamme" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profileGamme'].errors?.['required']"
+            >
+            profileGamme est obligatoire.....
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+
+          <div class="row">
+    <div class="col">
+          <div class="form-group">
+            <label for="inputName">profileFrequence</label>
+            <input class="form-control" type="text" formControlName="profileFrequence" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profileFrequence'].errors?.['required']"
+            >
+            profileFrequence est obligatoire.....
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">profileFamille</label>
+            <input class="form-control" type="text" formControlName="profileFamille" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profileFamille'].errors?.['required']"
+            >
+            profileFamille est obligatoire.....
+            </div>
+          </div>
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">profilePeriode</label>
+            <input class="form-control" type="text" formControlName="profilePeriode" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profilePeriode'].errors?.['required']"
+            >
+            profilePeriode est obligatoire.....
+            </div>
+          </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+          <div class="form-group">
+            <label for="inputName">profileFidelite</label>
+            <input class="form-control" type="text" formControlName="profileFidelite" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['profileFidelite'].errors?.['required']"
+            >
+            profileFidelite est obligatoire.....
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+          
+          <div class="form-group">
+          <label for="inputName">tel</label>
+          <input class="form-control" type="text" formControlName="tel" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['tel'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          tel est obligatoire.....
+          </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+          
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">
+              VALIDER
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+  </div>
+  
+  
+  
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyadmin></app-footerbyadmin>
+

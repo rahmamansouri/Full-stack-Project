@@ -1,0 +1,129 @@
+
+
+
+
+<app-headerbyagence></app-headerbyagence>
+<app-menubyagence></app-menubyagence>
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card">
+
+
+      <div class="container"><br><hr>
+        <button class="btn btn-lg btn-success" routerLink="/clientcreerproduct/">creer nouveau critere</button>&nbsp;
+        <button class="btn btn-lg btn-info" (click)="openPDF()">EXPORTER & TELECHARGER  PDF</button>&nbsp;
+      </div>
+      <br><hr>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-info">
+      <h1> LISTE CRITERES</h1>
+      <h1> {{criteres.length}}</h1>
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="criteres.length <= 0" class="no-data text-center">There is no criteres added yet!</p>
+    <!-- criteres list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="criteres.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">hotel_id</th>
+          <th scope="col">critere</th>
+          <th scope="col">valeur</th>
+          <th scope="col">description</th>
+          <th scope="col center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+                                                                          <tr
+              *ngFor="
+                let criteres of criteres
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+          <td>{{criteres.hotel_id}}</td>
+          <td>{{criteres.critere}}</td>
+          <td>{{criteres.valeur}}</td>
+          <td>{{criteres.description}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/agenceeditcritere/', criteres._id]">
+              <button type="button" class="btn btn-warning btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/agencedetailcritere/', criteres._id]">
+              <button type="button" class="btn btn-info btn-sm">Details</button>
+            </span>&nbsp;&nbsp;
+            <span class="delete" (click)="removecriteres(criteres, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+  </div>
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyagence></app-footerbyagence>
+

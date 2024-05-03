@@ -1,0 +1,128 @@
+
+
+
+
+<app-headerbyadmin></app-headerbyadmin>
+<app-menubyadmin></app-menubyadmin>
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-warning">
+  
+        <h1>DETAILS : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+
+
+  
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+
+
+<div class="row justify-content-center">
+    <div class="register-hotelPhotos">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          
+<div class="row">
+    <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">HOTEL DEMANDE : </label>
+            <input class="form-control" type="text" formControlName="hotel_id" readonly />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['hotel_id'].errors?.['required']"
+            >
+            hotel_id is required.
+            </div>
+          </div>
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">TYPE : </label>
+            <input class="form-control" type="text" formControlName="type" readonly />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['type'].errors?.['required']"
+            >
+            type is required.
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+
+          <div class="form-group">
+            <label for="inputName">image</label>
+            <input class="form-control" type="text" formControlName="image" />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['image'].errors?.['required']"
+            >
+            image is required.
+            </div>
+          </div>
+
+    </div>
+</div>
+
+
+  
+  
+          
+
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+<app-footerbyadmin></app-footerbyadmin>
+

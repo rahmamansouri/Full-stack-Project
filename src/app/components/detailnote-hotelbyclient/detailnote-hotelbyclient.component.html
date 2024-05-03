@@ -1,0 +1,136 @@
+
+
+
+
+<app-headerbyclient></app-headerbyclient>
+<app-menubyclient></app-menubyclient>
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-warning">
+  
+        <h1>DETAILS : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+
+
+<div class="row justify-content-center">
+    <div class="register-noteHotels">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+          
+<div class="row">
+    <div class="col">
+          <div class="form-group">
+            <label for="inputName">HOTEL DEMANDE : </label>
+            <input class="form-control" type="text" formControlName="hotel_id" readonly />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['hotel_id'].errors?.['required']"
+            >
+            hotel_id is required.
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">NOTE : </label>
+            <input class="form-control" type="text" formControlName="note" readonly />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['note'].errors?.['required']"
+            >
+            note is required.
+            </div>
+          </div>
+
+    </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="inputName">DATE NOTE : </label>
+            <input class="form-control" type="text" formControlName="datenote" readonly />
+            <!-- error -->
+            <div
+              class="invalid-feedback"
+              *ngIf="submitted && myForm['datenote'].errors?.['required']"
+            >
+            datenote is required.
+            </div>
+          </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+          <div class="form-group">
+          <label for="inputName">COMMENTAIRE : </label>
+          <input class="form-control" type="text" formControlName="commentaire" readonly />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['commentaire'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          commentaire is required.
+          </div>
+        </div>
+
+    </div>
+
+</div>
+          
+
+
+
+        </form>
+      </div>
+    </div>
+    <!-- form card register -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyclient></app-footerbyclient>
+

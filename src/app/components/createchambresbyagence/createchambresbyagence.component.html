@@ -1,0 +1,107 @@
+
+
+
+
+<app-headerbyagence></app-headerbyagence>
+<app-menubyagence></app-menubyagence>
+
+
+
+<div class="container">
+  <div class="col-12 col-sm-12 col-lg-12">
+    <div class="card btn-info">
+
+        <h1>selectionner nombre chambre a créer : </h1>
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="col-6 col-sm-12 col-lg-12">
+    <div class="card ">
+      <div class="row justify-content-center">
+        <div class="register-chambres">
+          <!-- form card register -->
+          <div class="card-body">
+            <form [formGroup]="chambresForm" (ngSubmit)="onSubmit()">
+              
+
+    
+
+              
+    
+        <div class="row">
+        <div class="col">
+    
+              <div class="form-group">
+                <label for="inputName">select nombre chambre a créer :</label>
+
+                <select class="form-select" formControlName="critere">
+                  <option value="" selected disabled hidden>Choose here</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select> 
+
+
+              </div>
+        </div>
+
+      </div>
+    
+    
+              
+    
+              
+              <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                  créer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- form card register -->
+      </div>
+    
+    
+    
+    
+
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyagence></app-footerbyagence>
+

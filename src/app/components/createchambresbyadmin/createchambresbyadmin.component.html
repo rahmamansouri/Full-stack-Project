@@ -1,0 +1,287 @@
+
+
+
+
+<app-headerbyadmin></app-headerbyadmin>
+<app-menubyadmin></app-menubyadmin>
+
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-info">
+  
+        <h1>creer nouvelle chambre : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-success">
+
+
+      <div class="alert alert-success" role="alert">
+        
+        <h1>{{vauesss}} </h1>
+      </div>
+
+      <br><hr>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+  <div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card ">
+        <div class="row justify-content-center">
+          <div class="register-chambres">
+            <!-- form card register -->
+            <div class="card-body">
+              <form [formGroup]="chambresForm" (ngSubmit)="onSubmit()">
+                
+                
+        <div class="row">
+
+
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">SELECTIONNER AGENCE : </label>
+
+                  <select class="form-select" formControlName="agence_id">
+                    <option value="" selected disabled hidden>selectionner ici </option>
+                    <option *ngFor="let client of users; let i = index" value="{{client._id}}">{{client.name}}</option>
+
+                  </select>  
+
+
+
+
+                </div>
+          </div>
+          <div class="col">
+                <div class="form-group">
+                  <label for="inputName">SELECT HOTEL :</label>
+
+                  <select class="form-select" formControlName="hotel_id">
+                    <option value="" selected disabled hidden>selectionner ici </option>
+                    <option *ngFor="let client of hotels; let i = index" value="{{client._id}}">{{client.name}}</option>
+
+                  </select>       
+
+
+
+                </div>
+      
+      
+          </div>
+        </div>
+          <div class="row">
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">NUMERO CHAMBRE : </label>
+                 <!-- error -->
+
+                  <select class="form-select" formControlName="NumChambre">
+                    <option value="" selected disabled hidden>selectionner ici </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+
+                  </select>       
+
+
+
+                </div>
+      
+          </div>
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">TYPE : </label>
+                  <!-- error -->
+                  <select class="form-select" type="text" formControlName="type">
+                    <option value="" selected disabled hidden>selectionner ici </option>
+                    
+                    <option>simple</option>
+                    <option>double</option>
+                    <option>famille</option>
+                    <option>senior suite</option>
+                    <option>junior suite</option>
+                  </select>
+      
+                </div>
+       
+        
+          </div>
+        </div>
+      
+      
+          <div class="row">
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">DATE DEBUT : </label>
+                  <input class="form-control" type="date" formControlName="datedebut" />
+                  <!-- error -->
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm['datedebut'].errors?.['required']"
+                    class="alert alert-danger"
+                  >
+                  datedebut est obligatoire.....
+                  </div>
+                </div>
+          </div>
+          <div class="col">
+      
+            <div class="form-group">
+              <label for="inputName">DATE FIN : </label>
+              <input class="form-control" type="date" formControlName="datefin" />
+              <!-- error -->
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && myForm['datefin'].errors?.['required']"
+                class="alert alert-danger"
+              >
+              datefin est obligatoire.....
+              </div>
+            </div>
+      </div>
+
+        </div>
+                
+                
+      
+          <div class="row">
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">PRIX ACHAT : </label>
+                  <input class="form-control" type="text" formControlName="prixAchat" />
+                  <!-- error -->
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm['prixAchat'].errors?.['required']"
+                    class="alert alert-danger"
+                  >
+                  prixAchat est obligatoire.....
+                  </div>
+                </div>
+          </div>
+          <div class="col">
+      
+                <div class="form-group">
+                  <label for="inputName">PRIX DE VENTE : </label>
+                  <input class="form-control" type="text" formControlName="prixVente" />
+                  <!-- error -->
+                  <div
+                    class="invalid-feedback"
+                    *ngIf="submitted && myForm['prixVente'].errors?.['required']"
+                    class="alert alert-danger"
+                  >
+                  prix Vente est obligatoire.....
+                  </div>
+                </div>
+      
+          </div>
+        </div>
+      
+      
+        <div class="row">
+          <!-- Progress Bar -->
+          <div class="col-md-12" *ngIf="progress">
+            <div class="progress form-group">
+              <div
+                class="progress-bar progress-bar-striped bg-success"
+                role="progressbar"
+                [style.width.%]="progress"
+              ></div>
+            </div>
+          </div>
+    
+          <div class="col-md-12">
+            <div
+              class="fileupload"
+              appDragDropFileUpload
+              (click)="fileField.click()"
+              (fileDropped)="upload($event)"
+            >
+              <span class="ddinfo">Choose a file or drag here</span>
+              <input
+                type="file"
+                name="avatars"
+                #fileField
+                (change)="upload($any($event).target.files)"
+                hidden
+                multiple
+              />
+            </div>
+          </div>
+    
+          <div class="col-md-12">
+            <div class="image-list" *ngFor="let file of fileArr; let i = index">
+              <div class="profile">
+                <img [src]="sanitize(file['url'])" alt="" />
+              </div>
+              <p>{{ file.item.name }}</p>
+            </div>
+            <p class="message">{{ msg }}</p>
+          </div>
+        </div>s 
+      
+                
+                <div class="form-group">
+                  <button class="btn btn-success btn-lg btn-block" type="submit">
+                    VALIDER
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- form card register -->
+        </div>
+      
+      
+      
+      
+
+
+
+
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyadmin></app-footerbyadmin>
+

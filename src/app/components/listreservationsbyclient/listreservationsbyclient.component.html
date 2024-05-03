@@ -1,0 +1,131 @@
+
+
+
+
+<app-headerbyclient></app-headerbyclient>
+<app-menubyclient></app-menubyclient>
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card">
+
+
+      <div class="container"><br>
+        <div class="row">
+        <div class="col-sm">
+        <button class="btn btn-lg btn-success" routerLink="/clientcreerreservation/">new reservation</button>&nbsp;
+        </div>
+        <div class="col-sm text-right">
+        <button class="btn btn-lg btn-info" (click)="openPDF()">EXPORT PDF</button>&nbsp;
+        </div>
+      </div>
+      </div>
+      <br>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="reservations.length <= 0" class="no-data text-center">There is no reservations added yet!</p>
+    <!-- reservations list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="reservations.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">agency</th>
+          <th scope="col">client</th>
+          <th scope="col">hotel</th>
+          <th scope="col">reservation date </th>
+          <th scope="col text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+              <tr
+              *ngFor="
+                let reservations of reservations
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+          <td>{{reservations.agence_id}}</td>
+          <td>{{reservations.user_id}}</td>
+          <td>{{reservations.hotel_id}}</td>
+          <td>{{reservations.date}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/clienteditreservation/', reservations._id]">
+              <button type="button" class="btn btn-success btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/clientdetailreservation/', reservations._id]">
+              <button type="button" class="btn btn-info btn-sm">Détails</button>
+            </span>&nbsp;&nbsp;
+            <span class="delete" (click)="removereservations(reservations, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+
+
+  </div>
+
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyclient></app-footerbyclient>
+

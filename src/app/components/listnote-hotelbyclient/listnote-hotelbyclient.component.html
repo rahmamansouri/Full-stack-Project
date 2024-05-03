@@ -1,0 +1,123 @@
+
+
+
+
+<app-headerbyclient></app-headerbyclient>
+<app-menubyclient></app-menubyclient>
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card">
+
+
+      <div class="container"><br>
+        <div class="row">
+          <div class="col-sm">
+        <button class="btn btn-lg btn-success" routerLink="/clientcreernotehotel/">new hotel review</button>&nbsp;
+          </div>
+          <div class="col-sm text-right">
+        <button class="btn btn-lg btn-info text-right" (click)="openPDF()">EXPORT PDF</button>&nbsp;
+          </div>
+      </div>
+      <br>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="noteHotel.length <= 0" class="no-data text-center">There is no noteHotel added yet!</p>
+    <!-- noteHotel list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="noteHotel.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">review</th>
+          <th scope="col">date</th>
+          <th scope="col center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+                                  <tr
+              *ngFor="
+                let noteHotel of noteHotel
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+
+          <td>{{noteHotel.note}}</td>
+          <td>{{noteHotel.datenote}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/clienteditnotehotel/', noteHotel._id]">
+              <button type="button" class="btn btn-success btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/clientdetailnotehotel/', noteHotel._id]">
+              <button type="button" class="btn btn-success btn-sm">Details</button>
+            </span>&nbsp;&nbsp;
+            <span class="delete" (click)="removenoteHotel(noteHotel, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+  </div>
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyclient></app-footerbyclient>
+

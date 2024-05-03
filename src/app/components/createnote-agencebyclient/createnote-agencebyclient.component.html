@@ -1,0 +1,159 @@
+
+
+
+
+<app-headerbyclient></app-headerbyclient>
+<app-menubyclient></app-menubyclient>
+
+<div class="container">
+    <div class="col-12 col-sm-12 col-lg-12">
+      <div class="card btn-info">
+  
+        <h1>Creer note pour agence : </h1>
+
+
+
+      </div>
+  </div>
+  </div>
+
+
+  <div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-success">
+
+
+      <div class="alert alert-success" role="alert">
+        
+        <h1>{{vauesss}} </h1>
+      </div>
+
+      <br><hr>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="row justify-content-center">
+  <div class="col-md-4 register-noteAgences">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="noteAgencesForm" (ngSubmit)="onSubmit()">
+        
+        
+        
+        <div class="form-group">
+          <label for="inputName">AGENCE ID</label>
+          <input class="form-control" type="text" formControlName="agence_id" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['agence_id'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          agence id est obligatoire.....
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputName">NOTE : </label>
+
+                    
+          <select class="form-select" formControlName="note">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+
+          </select>  
+
+
+
+
+        </div>
+        <div class="form-group">
+          <label for="inputName">date note</label>
+          <input class="form-control" type="text" formControlName="datenote" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['datenote'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          date note est obligatoire.....
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <label for="inputName">COMMENTAIRE : </label>
+          <input class="form-control" type="text" formControlName="commentaire" />
+          <!-- error -->
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm['commentaire'].errors?.['required']"
+            class="alert alert-danger"
+          >
+          commentaire est obligatoire.....
+          </div>
+        </div>
+
+
+
+
+
+
+        
+
+        
+
+        
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">
+            VALIDER
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyclient></app-footerbyclient>
+

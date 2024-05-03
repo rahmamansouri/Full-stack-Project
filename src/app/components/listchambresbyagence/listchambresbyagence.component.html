@@ -1,0 +1,137 @@
+
+
+
+
+<app-headerbyagence></app-headerbyagence>
+<app-menubyagence></app-menubyagence>
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card">
+
+
+      <div class="container"><br><hr>
+        <button class="btn btn-lg btn-success" routerLink="/agencecreerchambre/">creer nouvelle chambre</button>&nbsp;
+        <button class="btn btn-lg btn-info" (click)="openPDF()">EXPORTER & TELECHARGER  PDF</button>&nbsp;
+      </div>
+      <br><hr>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+    <!-- form card register -->
+    <div class="card btn-info">
+      <h1> Liste des chambres</h1>
+      <h1> {{chambres.length}}</h1>
+
+
+    </div>
+  </div>
+  <!-- form card register -->
+</div>
+
+
+
+
+
+<div class="container">  <div class="col-12 col-sm-12 col-lg-12">
+  <!-- form card register -->
+  <div class="card">
+
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="chambres.length <= 0" class="no-data text-center">There is no chambres added yet!</p>
+    <!-- chambres list -->
+    <table id="htmlData" class="table table-bordered" *ngIf="chambres.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">agence_id</th>
+          <th scope="col">hotel_id</th>
+          <th scope="col">NumChambre</th>
+          <th scope="col">type</th>
+          <th scope="col center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+                                                                          <tr
+              *ngFor="
+                let chambres of chambres
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              "
+            >
+
+
+          <td>{{chambres.agence_id}}</td>
+          <td>{{chambres.hotel_id}}</td>
+          <td>{{chambres.NumChambre}}</td>
+          <td>{{chambres.type}}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/agenceeditchambre/', chambres._id]">
+              <button type="button" class="btn btn-warning btn-sm">Edit</button>
+            </span>&nbsp;&nbsp;
+            <span class="edit" [routerLink]="['/agencedetailchambre/', chambres._id]">
+              <button type="button" class="btn btn-info btn-sm">DETAILS</button>
+            </span>&nbsp;&nbsp;
+            <span class="delete" (click)="removechambres(chambres, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+            <div class="d-flex justify-content-center">
+          <pagination-controls
+            previousLabel="Prev"
+            nextLabel="Next"
+            (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div>
+  </div>
+
+
+    
+    <br><hr>
+  </div>
+</div>
+<!-- form card register -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<app-footerbyagence></app-footerbyagence>
+
