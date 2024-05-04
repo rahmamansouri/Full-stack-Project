@@ -1,4 +1,18 @@
 # Docker
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '/'
+    customCommand: 'npm install -g @angular/cli'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: '/'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '/'
+    customCommand: 'npm run build'
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
