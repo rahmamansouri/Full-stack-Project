@@ -27,7 +27,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## build and run the Docker container
 
-`docker build -t angular-docker .`
+`docker build --platform=linux/amd64 -t angular-docker .`
 `docker run -p 4201:4200 angular-docker`
 
 ## dockerhub

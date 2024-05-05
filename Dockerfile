@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN 
+RUN npm install -g @angular/cli
 
 RUN npm install
 
