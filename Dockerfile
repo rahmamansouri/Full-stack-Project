@@ -1,10 +1,10 @@
-FROM node:alpine
+FROM --platform=linux/amd64 node:alpine
 
 WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN npm install -g @angular/cli
+RUN 
 
 RUN npm install
 

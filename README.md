@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 # Full stack app
-
->>>>>>> ffe625c02a318c09daceedad19fcbb0227bbbb80
 
 
 ## Development server
@@ -28,3 +24,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## build and run the Docker container
+
+`docker build -t angular-docker .`
+`docker run -p 4201:4200 angular-docker`
+
+## dockerhub
+https://hub.docker.com/r/rahma921/devops/tags
+
+
+## deploy to render
+https://devops-2y7t.onrender.com
