@@ -25,8 +25,18 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      vmImage: $(vmImageName):latest
     steps:
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        workingDir: '/'
+        customCommand: 'npm install -g @angular/cli'
+    - task: Npm@1
+      inputs:
+        command: 'install'
+        workingDir: '/'
+    
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
