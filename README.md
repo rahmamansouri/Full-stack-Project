@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-=======
 # Full stack app
-
->>>>>>> ffe625c02a318c09daceedad19fcbb0227bbbb80
-
 
 ## Development server
 
