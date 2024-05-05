@@ -25,10 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## build and run the Docker container
+## build the Docker container
 
-`docker build --platform=linux/amd64 -t angular-docker .`
-`docker run -p 4201:4200 angular-docker`
+`docker build --platform=linux/amd64 -t angular-docker .`  
+
+note  that `--platform=linux/amd64` is a requirement from render
+
+## push the Docker container to dockerhub registry
+
+`docker push rahma921/devops`
+
+note that `devops` is the dockerhub repository that hosts the  docker images
 
 ## dockerhub
 https://hub.docker.com/r/rahma921/devops/tags
